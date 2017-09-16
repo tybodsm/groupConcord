@@ -37,13 +37,13 @@ def groupConcord(df, cols = None, pntCnt = False):
     
     Out:
            a   b  groupID
-        0  1   2      1.0
-        1  1   3      1.0
-        2  1   4      1.0
-        3  2  12      2.0
-        4  2  14      2.0
-        5  3   3      1.0
-        6  4  20      4.0
+        0  1   2        1
+        1  1   3        1
+        2  1   4        1
+        3  2  12        2
+        4  2  14        2
+        5  3   3        1
+        6  4  20        4
     
     Returns
     -------
@@ -69,7 +69,8 @@ def groupConcord(df, cols = None, pntCnt = False):
     #indicator for if the group is finished
     dfu['notDone'] =  _notGrouped(dfu, cols)
     
-    itr = _pntCnt(1, dfu)
+    if pntCnt:
+        itr = _pntCnt(1, dfu)
     
     #Iterate over the grouping process for the subset of non-grouped
     while dfu.notDone.any():
